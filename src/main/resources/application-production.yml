@@ -1,0 +1,30 @@
+# PRODUCTION PROPERTIES
+spring:
+  profiles: production
+
+# PostgreSQL Database
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/appointmentsdb
+    username: postgres #SET BY THE DBA
+    password: postgres #SET BY THE DBA
+
+# JPA properties
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update #ONLY FOR THIS EXCERCISE (SHOULDN'T BE SET FOR PRODUCTION, THE DBA SHOULD TAKE CARE OF DB MIGRATIONS)
+    show-sql: false
+    open-in-view: false
+
+# Environment Logger configuration      
+logging:
+  level:
+    org.springframework: ERROR
+    org.hibernate: ERROR
+
+# Server configuration
+server:
+  port: 8080
+    
